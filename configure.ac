@@ -2726,6 +2726,9 @@ case "${target}" in
   *-*-linux-android*)
     target_makefile_frag="config/mt-android"
     ;;
+  *-*-linux-utopia*)
+    target_makefile_frag="config/mt-utopia"
+    ;;
   *-*-linux* | *-*-gnu* | *-*-k*bsd*-gnu | *-*-kopensolaris*-gnu)
     target_makefile_frag="config/mt-gnu"
     ;;

@@ -1718,7 +1718,7 @@ case $os in
 	# Now accept the basic system types.
 	# The portable systems comes first.
 	# Each alternative MUST end in a * to match a version number.
-	gnu* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* \
+	gnu* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* | utopia* \
 	     | *vms* | esix* | aix* | cnk* | sunos | sunos[34]* \
 	     | hpux* | unos* | osf* | luna* | dgux* | auroraux* | solaris* \
 	     | sym* |  plan9* | psp* | sim* | xray* | os68k* | v88r* \
@@ -1766,7 +1766,7 @@ esac
 # As a final step for OS-related things, validate the OS-kernel combination
 # (given a valid OS), if there is a kernel.
 case $kernel-$os in
-	linux-gnu* | linux-dietlibc* | linux-android* | linux-newlib* \
+	linux-gnu* | linux-dietlibc* | linux-android* | linux-newlib* | linux-utopia* \
 		   | linux-musl* | linux-relibc* | linux-uclibc* )
 		;;
 	uclinux-uclibc* )
