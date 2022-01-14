@@ -1,5 +1,5 @@
 /* Definitions for Intel 386 running Linux-based GNU systems with ELF format.
-   Copyright (C) 2012-2022 Free Software Foundation, Inc.
+   Copyright (C) 2012-2021 Free Software Foundation, Inc.
    Contributed by Ilya Enkovich.
 
 This file is part of GCC.
@@ -25,19 +25,17 @@ along with GCC; see the file COPYING3.  If not see
       GNU_USER_TARGET_OS_CPP_BUILTINS();       \
       ANDROID_TARGET_OS_CPP_BUILTINS();	       \
       UTOPIA_TARGET_OS_CPP_BUILTINS();         \
-    }                                          \
+    }                                            \
   while (0)
 
 #define EXTRA_TARGET_D_OS_VERSIONS()		\
-  ANDROID_TARGET_D_OS_VERSIONS();  \
+  ANDROID_TARGET_D_OS_VERSIONS();
   UTOPIA_TARGET_D_OS_VERSIONS();
 
 #undef CC1_SPEC
 #define CC1_SPEC \
-  LINUX_OR_ANDROID_CC (GNU_USER_TARGET_CC1_SPEC, \
-		       GNU_USER_TARGET_CC1_SPEC " " ANDROID_CC1_SPEC) \
-  LINUX_OR_UTOPIA_CC  (GNU_USER_TARGET_CC1_SPEC, \
-           GNU_USER_TARGET_CC1_SPEC " " UTOPIA_CC1_SPEC)
+  LINUX_CHOOSE_SPEC_CC(GNU_USER_TARGET_CC1_SPEC, \
+        GNU_USER_TARGET_CC1_SPEC " " ANDROID_CC1_SPEC " " UTOPIA_CC1_SPEC)
 
 #undef	LINK_SPEC
 #define LINK_SPEC \
@@ -46,10 +44,8 @@ along with GCC; see the file COPYING3.  If not see
 
 #undef  LIB_SPEC
 #define LIB_SPEC \
-  LINUX_OR_ANDROID_LD (GNU_USER_TARGET_LIB_SPEC, \
-		    GNU_USER_TARGET_NO_PTHREADS_LIB_SPEC " " ANDROID_LIB_SPEC) \
-  LINUX_OR_UTOPIA_LD (GNU_USER_TARGET_LIB_SPEC,  \
-        GNU_USER_TARGET_NO_PTHREADS_LIB_SPEC " " UTOPIA_LIB_SPEC)
+  LINUX_CHOOSE_SPEC_LD (GNU_USER_TARGET_LIB_SPEC, \
+          GNU_USER_TARGET_NO_PTHREADS_LIB_SPEC " " ANDROID_LINK_SPEC " " UTOPIA_LINK_SPEC)
 
 #undef  STARTFILE_SPEC
 #define STARTFILE_SPEC \
