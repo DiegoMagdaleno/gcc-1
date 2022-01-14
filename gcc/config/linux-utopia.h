@@ -52,7 +52,7 @@
  * 
 */
 
-#define UTOPIA_C11_SPEC         \
+#define UTOPIA_CC1_SPEC         \
       "%{!mglibc:%{!muclibc:%{!mmusl: -mmusl}}} "
     
 #define UTOPIA_LIB_SPEC         \
